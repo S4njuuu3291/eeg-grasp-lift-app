@@ -43,7 +43,7 @@ model = load_model()
 # =========================================================
 st.set_page_config(page_title="EEG Grasp-and-Lift Event Detection", layout="wide")
 
-st.title("🧠 EEG Grasp-and-Lift Event Detection")
+st.title("EEG Grasp-and-Lift Event Detection")
 
 st.markdown(
     """
@@ -59,7 +59,7 @@ st.markdown(
 # =========================================================
 # PENJELASAN SINGKAT (UNTUK ORANG AWAM)
 # =========================================================
-with st.expander("ℹ️ Penjelasan Singkat"):
+with st.expander("Penjelasan Singkat"):
     st.markdown(
         """
         **Apa itu EEG?**
@@ -79,7 +79,7 @@ with st.expander("ℹ️ Penjelasan Singkat"):
 # =========================================================
 # INPUT SECTION
 # =========================================================
-st.header("📥 Input Data EEG")
+st.header("Input Data EEG")
 
 st.markdown(
     """
@@ -111,12 +111,12 @@ if X_all.ndim != 3 or X_all.shape[1:] != (500, 32):
     )
     st.stop()
 
-st.success(f"✅ File berhasil dimuat. Total segmen EEG: {X_all.shape[0]} epoch")
+st.success(f"File berhasil dimuat. Total segmen EEG: {X_all.shape[0]} epoch")
 
 # =========================================================
 # PENJELASAN EPOCH
 # =========================================================
-with st.expander("🧩 Apa itu Epoch?"):
+with st.expander("Apa itu Epoch?"):
     st.markdown(
         """
         **Epoch** adalah potongan kecil sinyal EEG dengan durasi tertentu.
@@ -133,7 +133,7 @@ with st.expander("🧩 Apa itu Epoch?"):
 # =========================================================
 # PILIH EPOCH
 # =========================================================
-st.header("🧩 Pilih Segmen EEG (Epoch)")
+st.header("Pilih Segmen EEG (Epoch)")
 
 epoch_index = st.slider(
     "Pilih index epoch yang ingin dianalisis:",
@@ -153,7 +153,7 @@ col_left, col_space, col_right = st.columns([1.2, 0.08, 1])
 # KOLOM KIRI: VISUALISASI EEG
 # =======================
 with col_left:
-    st.subheader("📈 Visualisasi Sinyal EEG (Epoch Terpilih)")
+    st.subheader("Visualisasi Sinyal EEG (Epoch Terpilih)")
 
     fig, ax = plt.subplots(figsize=(14, 6))
     for ch in range(10):  # tetap 10 channel, isi tidak diubah
@@ -210,7 +210,7 @@ for label, p in zip(LABELS, probs):
 # =========================================================
 # PREDIKSI SELURUH EPOCH (TIMELINE)
 # =========================================================
-st.header("📦 Prediksi Seluruh Epoch (Timeline Event)")
+st.header("Prediksi Seluruh Epoch (Timeline Event)")
 
 st.markdown(
     """
